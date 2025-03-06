@@ -1,0 +1,55 @@
+package pl.zabrze.zs10.listy1_klasa3a;
+
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+public class Repozytorium {
+    public static ArrayList<Przepis> przepisy;
+
+    public static void wygenerujPrzepisy(){
+        przepisy = new ArrayList<>();
+        przepisy.add(
+                new Przepis(
+                        "Mufinki",
+                        "Mleko, mąka, cukier, kakao, Wszystkie wymieszać piec 20 minut",
+                        "Ciatka",
+                        R.drawable.mufinka,
+                        0
+                )
+        ) ;
+        przepisy.add(
+                new Przepis(
+                        "sernik",
+                        "ser, masło, ziemniaki, kokos",
+                        "Ciasto",
+                        R.drawable.sernik,
+                        0
+                )
+        );
+        przepisy.add(
+                new Przepis(
+                        "Makowiec",
+                        "mak, drożdze, mąka, mleko, cukier",
+                        "Ciasto",
+                        R.drawable.makowiec,
+                        1
+                )
+        );
+        przepisy.add(
+                new Przepis(
+                        "Kakao",
+                        "kakao, mleko",
+                        "Napoje",
+                        R.drawable.kakao,
+                        0
+                )
+        );
+    }
+
+    public ArrayList<Przepis> wypiszPrzepisy(String kategoria){
+        wygenerujPrzepisy();
+        ArrayList<Przepis> wybranePrzepisy
+    }
+}

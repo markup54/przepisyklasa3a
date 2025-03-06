@@ -6,4 +6,11 @@
         <item>płatki owsiane</item>
         <item>kakao</item>
     </string-array>
+
+
+    <string-array name="kategorie">
+        <item>Ciastka</item>
+        <item>Ciasto</item>
+        <item>Napoje</item>
+    </string-array>
 </resources>
