@@ -48,8 +48,15 @@ public class Repozytorium {
         );
     }
 
-    public ArrayList<Przepis> wypiszPrzepisy(String kategoria){
+    public static ArrayList<Przepis> wypiszPrzepisy(String kategoria){
         wygenerujPrzepisy();
-        ArrayList<Przepis> wybranePrzepisy
+        ArrayList<Przepis> wybranePrzepisy = new ArrayList<>();
+        for (Przepis przepis:przepisy) {
+            if(przepis.getKategoria().equals(kategoria)){
+                wybranePrzepisy.add(przepis);
+            }
+        }
+
+        return wybranePrzepisy;
     }
 }
