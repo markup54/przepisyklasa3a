@@ -1,10 +1,14 @@
 package pl.zabrze.zs10.listy1_klasa3a;
+
+import java.util.ArrayList;
+
 public class Przepis {
     private String nazwaPrzepisu;
     private String skladniki;
     private String kategoria;
     private int idObrazka;
-    private int polubienia;
+    private float polubienia;
+    private ArrayList<Float> wszystkieOceny = new ArrayList<>();
 
     public Przepis(String nazwaPrzepisu, String skladniki, String kategoria, int idObrazka, int polubienia) {
         this.nazwaPrzepisu = nazwaPrzepisu;
@@ -12,6 +16,7 @@ public class Przepis {
         this.kategoria = kategoria;
         this.idObrazka = idObrazka;
         this.polubienia = polubienia;
+        wszystkieOceny.add(this.polubienia);
     }
 
     @Override
@@ -19,9 +24,11 @@ public class Przepis {
         return nazwaPrzepisu ;
     }
 
-    public void setPolubienia() {
-        this.polubienia ++;
+    public void setPolubienia(int polubienie) {
+        wszystkieOceny.add((float)polubienie);
+
     }
+
 
     public String getNazwaPrzepisu() {
         return nazwaPrzepisu;
@@ -39,7 +46,12 @@ public class Przepis {
         return idObrazka;
     }
 
-    public int getPolubienia() {
-        return polubienia;
+    public float getPolubienia() {
+        float srednia = 0;
+        for (int i = 0; i < wszystkieOceny.size(); i++) {
+            srednia+= wszystkieOceny.get(i);
+        }
+        srednia = srednia/wszystkieOceny.size();
+        return srednia;
     }
 }
