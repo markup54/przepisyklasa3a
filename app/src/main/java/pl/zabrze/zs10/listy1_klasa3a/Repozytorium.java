@@ -14,7 +14,7 @@ public class Repozytorium {
                 new Przepis(
                         "Mufinki",
                         "Mleko, mąka, cukier, kakao, Wszystkie wymieszać piec 20 minut",
-                        "Ciatka",
+                        "Ciastka",
                         R.drawable.mufinka,
                         0
                 )
@@ -25,7 +25,7 @@ public class Repozytorium {
                         "ser, masło, ziemniaki, kokos",
                         "Ciasto",
                         R.drawable.sernik,
-                        0
+                        3
                 )
         );
         przepisy.add(
@@ -58,5 +58,14 @@ public class Repozytorium {
         }
 
         return wybranePrzepisy;
+    }
+    public static Przepis zwrocPrzepis(String nazwa){
+        wygenerujPrzepisy();
+        for (Przepis przepis:przepisy) {
+            if(przepis.getNazwaPrzepisu().equals(nazwa)){
+                return przepis;
+            }
+        }
+        return null;
     }
 }

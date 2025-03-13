@@ -2,7 +2,10 @@ package pl.zabrze.zs10.listy1_klasa3a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ public class ListaPrzepisowActivity extends AppCompatActivity {
     private ListView listViewPrzepisy;
     private ArrayAdapter<Przepis> arrayAdapter;
     private ArrayList<Przepis> wybranePrzepisy;
+    public  static final String PRZEPIS = "przepis";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,20 @@ public class ListaPrzepisowActivity extends AppCompatActivity {
         );
         listViewPrzepisy = findViewById(R.id.listViewPrzepisy);
         listViewPrzepisy.setAdapter(arrayAdapter);
+
+        listViewPrzepisy.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        String nazwaPrzepisu = wybranePrzepisy.get(i).toString();
+                        Intent intent = new Intent(ListaPrzepisowActivity.this,
+                                PrzepisActivity.class);
+                        intent.putExtra(PRZEPIS, nazwaPrzepisu);
+
+                        startActivity(intent);
+                    }
+                }
+        );
 
     }
 }

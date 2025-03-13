@@ -22,9 +22,7 @@ public class MainActivityListaKategorii extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         String kategoria = listViewKategorie.getItemAtPosition(i).toString();
-                        Toast.makeText(MainActivityListaKategorii.this,
-                                "wybrano kategorię "+kategoria,
-                                Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(MainActivityListaKategorii.this,
                                 ListaPrzepisowActivity.class);
                         intent.putExtra(KATEGORIA,kategoria);
